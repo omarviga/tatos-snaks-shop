@@ -13,7 +13,15 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        cartoon: ['"Carter One"', 'cursive'],
+        vintage: ['"Bungee"', 'cursive'],
+      },
       colors: {
+        'vintage-brown': 'hsl(var(--vintage-brown))',
+        'vintage-cream': 'hsl(var(--vintage-cream))',
+        'popcorn-gold': 'hsl(var(--popcorn-gold))',
+        'caramel-dark': 'hsl(var(--caramel-dark))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -84,6 +92,10 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "bounce-soft": "bounce-soft 2s ease-in-out infinite",
+        "float": "float-gentle 3s ease-in-out infinite",
+        "wiggle": "wiggle 1s ease-in-out infinite",
+        "pop-in": "pop-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
       },
     },
   },
