@@ -38,6 +38,7 @@ export const Contact = () => {
               <div>
                 <Input 
                   type="text"
+                  name="nombre"
                   placeholder="Tu nombre"
                   required
                   className="font-cartoon text-lg border-4 border-vintage-brown focus:border-primary"
@@ -46,8 +47,9 @@ export const Contact = () => {
               
               <div>
                 <Input 
-                  type="email"
-                  placeholder="Tu correo"
+                  type="tel"
+                  name="telefono"
+                  placeholder="Teléfono o WhatsApp"
                   required
                   className="font-cartoon text-lg border-4 border-vintage-brown focus:border-primary"
                 />
@@ -55,7 +57,8 @@ export const Contact = () => {
               
               <div>
                 <Textarea 
-                  placeholder="Tu mensaje..."
+                  name="mensaje"
+                  placeholder="Tu pedido o mensaje artesanal..."
                   required
                   rows={5}
                   className="font-cartoon text-lg border-4 border-vintage-brown focus:border-primary resize-none"
@@ -66,9 +69,18 @@ export const Contact = () => {
                 type="submit"
                 className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-vintage text-xl py-6 border-4 border-vintage-brown shadow-lg"
               >
-                Enviar Mensaje
+                Enviar pedido artesanal
               </Button>
             </form>
+            
+            <div className="mt-8 text-center space-y-3">
+              <p className="font-cartoon text-lg text-foreground/80">
+                📍 <span className="font-vintage text-primary">Hecho artesanalmente en Acámbaro, Guanajuato</span>
+              </p>
+              <p className="font-vintage text-2xl text-secondary">
+                ❤️ De nuestra olla a tu corazón
+              </p>
+            </div>
 
             <div className="mt-10 pt-8 border-t-4 border-vintage-brown">
               <h3 className="text-2xl font-vintage text-center mb-6">Síguenos</h3>

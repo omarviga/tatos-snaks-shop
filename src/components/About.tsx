@@ -17,9 +17,23 @@ export const About = () => {
           </div>
 
           <div className="bg-vintage-cream border-8 border-vintage-brown rounded-3xl p-8 md:p-12 shadow-2xl animate-pop-in" style={{ animationDelay: '0.2s' }}>
-            <p className="text-xl md:text-2xl font-cartoon text-foreground leading-relaxed text-center mb-6">
-              "Tatos Pops nació con la idea de devolverle magia a lo simple: el estallido del maíz, 
-              el toque del caramelo y la sonrisa de los viejos tiempos."
+            <div className="text-center mb-8">
+              <div className="text-6xl mb-4 animate-wiggle">👶✨</div>
+              <p className="text-xl md:text-2xl font-cartoon text-foreground leading-relaxed mb-6">
+                "Tatos Pops nació inspirado por <span className="font-vintage text-primary text-3xl">Franco</span>, 
+                nuestro pequeño explorador del sabor."
+              </p>
+              <p className="text-lg md:text-xl font-cartoon text-foreground/80 leading-relaxed">
+                Su sonrisa al probar nuestras primeras palomitas nos hizo crear algo especial: 
+                un snack divertido, artesanal y <span className="font-vintage text-secondary text-2xl">100% mexicano</span>.
+              </p>
+            </div>
+            
+            <div className="w-24 h-1 bg-vintage-brown mx-auto my-8"></div>
+            
+            <p className="text-lg md:text-xl font-cartoon text-foreground/80 text-center leading-relaxed mb-8">
+              Cada palomita lleva la magia de devolverle alegría a lo simple: 
+              el estallido del maíz, el toque del caramelo y la sonrisa de los viejos tiempos.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mt-12">
