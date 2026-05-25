@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        cartoon: ['"Carter One"', 'cursive'],
-        vintage: ['"Bungee"', 'cursive'],
+        cartoon: ['Inter', 'system-ui', 'sans-serif'],
+        vintage: ['"Archivo Black"', 'Inter', 'sans-serif'],
       },
       colors: {
         'vintage-brown': 'hsl(var(--vintage-brown))',
