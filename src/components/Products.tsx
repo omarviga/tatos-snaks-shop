@@ -76,10 +76,10 @@ export const Products = () => {
                   onClick={() =>
                     document.getElementById("socios")?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="w-full mt-6 bg-ink text-background hover:bg-ink/90 font-vintage text-base py-7 rounded-none border-2 border-ink"
+                  className="w-full mt-6 bg-ink text-background hover:bg-ink/90 font-cartoon font-bold tracking-wide text-sm py-7 rounded-none border-2 border-ink uppercase"
                 >
                   <ShoppingBag className="w-5 h-5 mr-2 stroke-[1.5]" />
-                  Probar Tatos Snacks
+                  Conocer Producto
                 </Button>
               </div>
             </div>
