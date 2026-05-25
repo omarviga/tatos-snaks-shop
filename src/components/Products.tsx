@@ -1,154 +1,90 @@
-import { useEffect, useState } from "react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Loader2 } from "lucide-react";
-import { fetchProducts, ShopifyProduct } from "@/lib/shopify";
-import { useCartStore } from "@/stores/cartStore";
-import { toast } from "sonner";
+import { ShoppingBag, BadgeCheck, Award } from "lucide-react";
+import butterImage from "@/assets/butter-popcorn.jpg";
 
 export const Products = () => {
-  const [products, setProducts] = useState<ShopifyProduct[]>([]);
-  const [loading, setLoading] = useState(true);
-  const addItem = useCartStore(state => state.addItem);
-
-  useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        const fetchedProducts = await fetchProducts(20);
-        setProducts(fetchedProducts);
-      } catch (error) {
-        console.error('Error cargando productos:', error);
-        toast.error("Error al cargar productos");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadProducts();
-  }, []);
-
-  const handleAddToCart = (product: ShopifyProduct) => {
-    const variant = product.node.variants.edges[0].node;
-    
-    const cartItem = {
-      product,
-      variantId: variant.id,
-      variantTitle: variant.title,
-      price: variant.price,
-      quantity: 1,
-      selectedOptions: variant.selectedOptions
-    };
-    
-    addItem(cartItem);
-    toast.success("¡Agregado al carrito!", {
-      description: product.node.title,
-      position: "top-center",
-    });
-  };
-
-  if (loading) {
-    return (
-      <section id="tienda" className="py-20 bg-vintage-cream">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <Loader2 className="w-12 h-12 animate-spin mx-auto text-primary" />
-            <p className="mt-4 font-cartoon text-xl">Cargando productos...</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section id="tienda" className="py-20 bg-vintage-cream relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
-        <div className="absolute top-1/4 left-10 text-9xl rotate-12">🛒</div>
-        <div className="absolute bottom-1/4 right-10 text-9xl -rotate-12">🎁</div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-vintage text-vintage-brown mb-4 animate-pop-in">
-            Nuestra Tienda
-          </h2>
-          <p className="text-xl font-cartoon text-foreground/80 max-w-2xl mx-auto animate-pop-in" style={{ animationDelay: '0.1s' }}>
-            ¡Lleva la magia vintage a tu casa!
-          </p>
-        </div>
-
-        {products.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="text-8xl mb-6 animate-bounce-soft">🍿</div>
-            <h3 className="text-2xl font-vintage text-vintage-brown mb-4">
-              No hay productos disponibles
-            </h3>
-            <p className="font-cartoon text-lg text-foreground/70">
-              ¡Pronto tendremos palomitas deliciosas para ti!
+    <section id="producto" className="py-24 bg-vintage-cream border-t-2 border-ink">
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="font-cartoon tracking-[0.4em] text-xs text-ink mb-3">
+              PRODUCTO ESTRELLA
             </p>
+            <h2 className="font-vintage text-4xl md:text-5xl text-ink">
+              Edición Mantequilla
+            </h2>
+            <div className="w-16 h-px bg-ink mx-auto mt-4" />
           </div>
-        ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {products.map((product, index) => {
-              const variant = product.node.variants.edges[0].node;
-              const image = product.node.images.edges[0]?.node;
-              const isCaramel = product.node.title.toLowerCase().includes('caramelo');
 
-              return (
-                <Card 
-                  key={product.node.id}
-                  className="group border-8 border-vintage-brown overflow-hidden hover:scale-105 hover:-rotate-1 transition-all duration-500 hover:shadow-2xl bg-background animate-pop-in relative"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+          <article className="grid md:grid-cols-2 border-2 border-ink bg-background">
+            {/* Image */}
+            <div className="border-b-2 md:border-b-0 md:border-r-2 border-ink p-6 flex items-center justify-center bg-background">
+              <div className="relative w-full aspect-square max-w-sm">
+                <img
+                  src={butterImage}
+                  alt="Palomitas sabor mantequilla Tatos Snacks bolsa 36g"
+                  className="w-full h-full object-contain grayscale contrast-125"
+                />
+                {/* Stamp */}
+                <div className="absolute top-2 right-2 border-2 border-ink rounded-full w-20 h-20 flex flex-col items-center justify-center bg-background rotate-12 text-center p-1">
+                  <Award className="w-5 h-5 stroke-1" />
+                  <span className="font-vintage text-[10px] leading-tight mt-1">
+                    NOM<br />051
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-8 md:p-10 flex flex-col">
+              <p className="font-cartoon text-xs tracking-widest mb-2 text-ink/70">
+                SKU · TS-MTQ-36
+              </p>
+              <h3 className="font-vintage text-3xl text-ink leading-tight">
+                Palomitas Sabor Mantequilla
+              </h3>
+              <p className="font-cartoon text-base text-ink/80 mt-2">
+                Bolsa de 36g · Maíz Pop Mushroom
+              </p>
+
+              <ul className="mt-6 space-y-3 font-cartoon text-sm text-ink/80">
+                <li className="flex items-start gap-2">
+                  <BadgeCheck className="w-4 h-4 mt-0.5 stroke-[1.5] shrink-0" />
+                  Maíz reventado a la perfección
+                </li>
+                <li className="flex items-start gap-2">
+                  <BadgeCheck className="w-4 h-4 mt-0.5 stroke-[1.5] shrink-0" />
+                  Mantequilla balanceada, sin excesos
+                </li>
+                <li className="flex items-start gap-2">
+                  <BadgeCheck className="w-4 h-4 mt-0.5 stroke-[1.5] shrink-0" />
+                  Empaque Kraft con triple capa
+                </li>
+              </ul>
+
+              <div className="mt-auto pt-8">
+                <div className="border-t-2 border-ink pt-5 flex items-baseline justify-between">
+                  <span className="font-cartoon text-xs uppercase tracking-widest">
+                    Precio público
+                  </span>
+                  <span className="font-vintage text-4xl text-ink">
+                    $15.00 <span className="text-base">MXN</span>
+                  </span>
+                </div>
+                <Button
+                  onClick={() =>
+                    document.getElementById("socios")?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="w-full mt-6 bg-ink text-background hover:bg-ink/90 font-vintage text-base py-7 rounded-none border-2 border-ink"
                 >
-                  {/* Decorative corner stamp */}
-                  <div className="absolute top-4 right-4 z-10 bg-secondary border-4 border-vintage-brown rounded-full w-16 h-16 flex items-center justify-center rotate-12 group-hover:rotate-0 group-hover:scale-125 transition-all duration-500">
-                    <span className="text-2xl">{isCaramel ? '🍯' : '🧈'}</span>
-                  </div>
-
-                  {image && (
-                    <div className="relative h-80 overflow-hidden bg-gradient-to-br from-vintage-cream to-background">
-                      <img 
-                        src={image.url} 
-                        alt={image.altText || product.node.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      {/* Overlay effect on hover */}
-                      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-all duration-500"></div>
-                    </div>
-                  )}
-                  
-                  <CardContent className="p-8">
-                    <h3 className="text-3xl font-vintage text-vintage-brown mb-3 group-hover:text-primary transition-colors duration-300">
-                      {product.node.title}
-                    </h3>
-                    <p className="font-cartoon text-lg text-foreground/70 mb-6 leading-relaxed">
-                      {product.node.description}
-                    </p>
-                    <div className="flex items-center justify-between bg-vintage-cream rounded-2xl p-4 border-4 border-vintage-brown group-hover:border-primary transition-colors duration-300">
-                      <span className="text-4xl font-vintage text-primary">
-                        ${parseFloat(variant.price.amount).toFixed(2)}
-                      </span>
-                      <span className="font-cartoon text-lg text-foreground/70">
-                        MXN
-                      </span>
-                    </div>
-                  </CardContent>
-
-                  <CardFooter className="p-8 pt-0">
-                    <Button 
-                      onClick={() => handleAddToCart(product)}
-                      disabled={!variant.availableForSale}
-                      className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-vintage text-xl py-7 border-4 border-vintage-brown shadow-lg group-hover:scale-105 transition-all duration-300"
-                    >
-                      <ShoppingCart className="w-6 h-6 mr-2 group-hover:animate-bounce-soft" />
-                      {variant.availableForSale ? 'Comprar ahora' : 'Agotado'}
-                    </Button>
-                  </CardFooter>
-                </Card>
-              );
-            })}
-          </div>
-        )}
+                  <ShoppingBag className="w-5 h-5 mr-2 stroke-[1.5]" />
+                  Probar Tatos Snacks
+                </Button>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   );
