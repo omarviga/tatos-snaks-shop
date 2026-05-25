@@ -8,8 +8,8 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Tatos Snacks — Kraft + Serigrafía Negro Absoluto */
-    --background: 30 35% 79%;        /* Kraft paper #E3CBB2 */
+    /* Tatos Snacks — Kraft + Negro Absoluto (industrial moderno) */
+    --background: 30 41% 85%;        /* Kraft paper #EADCC9 */
     --foreground: 0 0% 0%;            /* Negro absoluto */
 
     --card: 30 40% 85%;
@@ -42,7 +42,7 @@ All colors MUST be HSL.
     /* Tokens vintage */
     --vintage-brown: 0 0% 0%;
     --vintage-cream: 30 40% 88%;
-    --kraft: 30 35% 79%;
+    --kraft: 30 41% 85%;
     --kraft-dark: 30 25% 65%;
     --ink: 0 0% 0%;
   }
