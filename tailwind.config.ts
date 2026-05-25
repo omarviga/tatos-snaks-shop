@@ -20,8 +20,9 @@ export default {
       colors: {
         'vintage-brown': 'hsl(var(--vintage-brown))',
         'vintage-cream': 'hsl(var(--vintage-cream))',
-        'popcorn-gold': 'hsl(var(--popcorn-gold))',
-        'caramel-dark': 'hsl(var(--caramel-dark))',
+        'kraft': 'hsl(var(--kraft))',
+        'kraft-dark': 'hsl(var(--kraft-dark))',
+        'ink': 'hsl(var(--ink))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

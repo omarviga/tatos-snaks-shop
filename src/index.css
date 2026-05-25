@@ -8,42 +8,43 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Vintage Tatos Pops Theme - 1930s Cartoon Style */
-    --background: 38 35% 88%; /* Kraft paper beige */
-    --foreground: 30 15% 15%; /* Vintage black */
+    /* Tatos Snacks — Kraft + Serigrafía Negro Absoluto */
+    --background: 30 35% 79%;        /* Kraft paper #E3CBB2 */
+    --foreground: 0 0% 0%;            /* Negro absoluto */
 
-    --card: 48 50% 96%;
-    --card-foreground: 30 15% 15%;
+    --card: 30 40% 85%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 48 50% 96%;
-    --popover-foreground: 30 15% 15%;
+    --popover: 30 40% 85%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 35 75% 55%; /* Golden caramel */
-    --primary-foreground: 48 50% 98%;
+    --primary: 0 0% 0%;               /* Tinta serigráfica */
+    --primary-foreground: 30 35% 79%;
 
-    --secondary: 2 72% 52%; /* Cherry red */
-    --secondary-foreground: 48 50% 98%;
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 30 35% 79%;
 
-    --muted: 38 25% 80%;
-    --muted-foreground: 30 25% 40%;
+    --muted: 30 25% 72%;
+    --muted-foreground: 0 0% 20%;
 
-    --accent: 48 90% 70%; /* Butter yellow */
-    --accent-foreground: 30 45% 30%;
+    --accent: 30 40% 88%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 48 50% 98%;
+    --destructive: 0 70% 35%;
+    --destructive-foreground: 30 35% 79%;
 
-    --border: 35 30% 75%;
-    --input: 38 30% 85%;
-    --ring: 35 75% 55%;
+    --border: 0 0% 0%;
+    --input: 30 30% 75%;
+    --ring: 0 0% 0%;
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
-    /* Custom vintage tokens */
-    --vintage-brown: 30 45% 30%;
-    --vintage-cream: 48 50% 96%;
-    --popcorn-gold: 45 95% 60%;
-    --caramel-dark: 35 60% 40%;
+    /* Tokens vintage */
+    --vintage-brown: 0 0% 0%;
+    --vintage-cream: 30 40% 88%;
+    --kraft: 30 35% 79%;
+    --kraft-dark: 30 25% 65%;
+    --ink: 0 0% 0%;
   }
 
   .dark {
